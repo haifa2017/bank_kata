@@ -27,6 +27,7 @@ public class DepositTest {
     public void should_adding_zero_to_my_account() throws Exception {
         LocalDateTime date = LocalDateTime.of(2019, 4, 26, 12, 30);
         account.deposit(new Amount(0, date));
+
         Assertions.assertThat(account.getBalance()).isEqualTo(new Balance(new Amount(0 , date)));
     }
 
@@ -34,6 +35,7 @@ public class DepositTest {
     public void should_adding_50_to_my_account() throws Exception {
         LocalDateTime date = LocalDateTime.of(2019, 4, 26, 12, 30);
         account.deposit(new Amount(50 , date));
+
         Assertions.assertThat(account.getBalance()).isEqualTo(new Balance(new Amount(50 , date)));
     }
 
@@ -42,6 +44,7 @@ public class DepositTest {
         LocalDateTime date = LocalDateTime.of(2019, 4, 26, 12, 30);
         account.deposit(new Amount(50, date));
         account.deposit(new Amount(50, date));
+
         Assertions.assertThat(account.getBalance()).isEqualTo(new Balance(new Amount(100, date)));
     }
 
