@@ -1,6 +1,6 @@
 package bank_account_kata;
 
-enum TypeOfOperation {
+public enum TypeOfOperation {
 
     DEPOSIT_OPERATION("+"), REMOVE_OPERATION("-");
 

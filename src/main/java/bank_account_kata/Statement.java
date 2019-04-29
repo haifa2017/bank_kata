@@ -5,31 +5,31 @@ import java.time.LocalDateTime;
 
 public class Statement {
 
-    private final LocalDateTime localDate;
+    private final LocalDateTime localDatetime;
     private final Amount amount;
     private final Balance currentBalance;
     private final TypeOfOperation typeofoperation;
 
-    private Statement(LocalDateTime localDate, Amount amount, Balance currentBalance, TypeOfOperation typeofoperation) {
-        this.localDate = localDate;
+    private Statement(LocalDateTime localDatetime, Amount amount, Balance currentBalance, TypeOfOperation typeofoperation) {
+        this.localDatetime = localDatetime;
         this.amount = amount;
         this.currentBalance = currentBalance;
         this.typeofoperation = typeofoperation;
     }
 
-    void print(Printer printer) {
+    public void print(Printer printer) {
         printer.print(this.toString());
     }
 
 
     @Override
     public String toString() {
-        return localDate +
+        return localDatetime +
                 " | " + typeofoperation.getOperation() + amount +
                 " | " + currentBalance;
     }
 
-    static final class StatementBuilder {
+    public static final class StatementBuilder {
         private LocalDateTime localDate;
         private Amount amount;
         private Balance currentBalance;
@@ -38,31 +38,31 @@ public class Statement {
         private StatementBuilder() {
         }
 
-        static StatementBuilder aStatement() {
+        public static StatementBuilder aStatement() {
             return new StatementBuilder();
         }
 
-        StatementBuilder withLocalDate(LocalDateTime localDate) {
+        public StatementBuilder withLocalDate(LocalDateTime localDate) {
             this.localDate = localDate;
             return this;
         }
 
-        StatementBuilder withAmount(Amount amount) {
+        public StatementBuilder withAmount(Amount amount) {
             this.amount = amount;
             return this;
         }
 
-        StatementBuilder withCurrentBalance(Balance currentBalance) {
+        public StatementBuilder withCurrentBalance(Balance currentBalance) {
             this.currentBalance = currentBalance;
             return this;
         }
 
-        StatementBuilder withOperation(TypeOfOperation typeofoperation) {
+        public StatementBuilder withOperation(TypeOfOperation typeofoperation) {
             this.typeofoperation = typeofoperation;
             return this;
         }
 
-        Statement build() {
+        public Statement build() {
             return new Statement(localDate, amount, currentBalance, typeofoperation);
         }
     }

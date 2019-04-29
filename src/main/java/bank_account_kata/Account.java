@@ -3,6 +3,7 @@ package bank_account_kata;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import static bank_account_kata.TypeOfOperation.REMOVE_OPERATION;
 
@@ -18,6 +19,7 @@ public class Account {
 
     public Account(Amount amount) {
     }
+
 
 
     public void deposit(Amount amount) {
@@ -38,6 +40,7 @@ public class Account {
             statement.print(printer);
         }
     }
+
 
     private void CreateStatement(Amount amount, TypeOfOperation typeOfOperation) {
         Statement statement = Statement.StatementBuilder.aStatement()
