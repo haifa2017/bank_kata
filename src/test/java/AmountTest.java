@@ -4,14 +4,14 @@ import org.assertj.core.api.Assertions;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @RunWith(JUnitParamsRunner.class)
 public class AmountTest {
 
     @Test
     public void adding_a_amount_to_an_other() throws Exception {
-        LocalDateTime date = LocalDateTime.of(2019, 4, 26, 12, 30);
+        LocalDate date =  LocalDate.now();
         Amount amount = new Amount(200, date);
         amount = amount.add(new Amount(200, date));
 
@@ -22,7 +22,7 @@ public class AmountTest {
 
     @Test
     public void subtract_a_amount_to_an_other() throws Exception {
-        LocalDateTime date = LocalDateTime.of(2019, 4, 26, 12, 30);
+        LocalDate date =  LocalDate.now();
         Amount amount = new Amount(200, date);
         amount = amount.subtract(new Amount(200, date));
 
@@ -34,7 +34,7 @@ public class AmountTest {
 
     @Test
     public void return_false_when_the_result_is_negative() throws Exception {
-        LocalDateTime date = LocalDateTime.of(2019, 4, 26, 12, 30);
+        LocalDate date =  LocalDate.now();
         Amount amount = new Amount(200 , date);
 
         Assertions.assertThat(amount.negativeResult(new Amount(300 , date))).isTrue();
@@ -42,7 +42,7 @@ public class AmountTest {
 
     @Test
     public void return_true_when_the_result_is_positive() throws Exception {
-        LocalDateTime date = LocalDateTime.of(2019, 4, 26, 12, 30);
+        LocalDate date =  LocalDate.now();
         Amount amount = new Amount(200 , date);
 
         Assertions.assertThat(amount.negativeResult(new Amount(100 , date))).isFalse();

@@ -1,17 +1,17 @@
 package bank_account_kata;
 
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public class Statement {
 
-    private final LocalDateTime localDatetime;
+    private final LocalDate localDate;
     private final Amount amount;
     private final Balance currentBalance;
     private final TypeOfOperation typeofoperation;
 
-    private Statement(LocalDateTime localDatetime, Amount amount, Balance currentBalance, TypeOfOperation typeofoperation) {
-        this.localDatetime = localDatetime;
+    private Statement(LocalDate localDatetime, LocalDate localDate, Amount amount, Balance currentBalance, TypeOfOperation typeofoperation) {
+        this.localDate = localDate;
         this.amount = amount;
         this.currentBalance = currentBalance;
         this.typeofoperation = typeofoperation;
@@ -24,13 +24,13 @@ public class Statement {
 
     @Override
     public String toString() {
-        return localDatetime +
+        return localDate +
                 " | " + typeofoperation.getOperation() + amount +
                 " | " + currentBalance;
     }
 
     public static final class StatementBuilder {
-        private LocalDateTime localDate;
+        private LocalDate localDate;
         private Amount amount;
         private Balance currentBalance;
         private TypeOfOperation typeofoperation;
@@ -42,7 +42,7 @@ public class Statement {
             return new StatementBuilder();
         }
 
-        public StatementBuilder withLocalDate(LocalDateTime localDate) {
+        public StatementBuilder withLocalDate(LocalDate localDate) {
             this.localDate = localDate;
             return this;
         }
@@ -63,7 +63,7 @@ public class Statement {
         }
 
         public Statement build() {
-            return new Statement(localDate, amount, currentBalance, typeofoperation);
+            return new Statement(localDate, localDate, amount, currentBalance, typeofoperation);
         }
     }
 }

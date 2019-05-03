@@ -1,6 +1,7 @@
 package bank_account_kata;
 
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Amount {
@@ -8,8 +9,8 @@ public class Amount {
 
     private int value;
 
-    private final LocalDateTime date;
-    public Amount(int value, LocalDateTime date) {
+    private final LocalDate date;
+    public Amount(int value, LocalDate date) {
         this.date = date;
         if (value < 0)
             throw new IllegalArgumentException();

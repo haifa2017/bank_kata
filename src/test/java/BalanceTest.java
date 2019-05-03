@@ -5,14 +5,14 @@ import org.assertj.core.api.Assertions;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @RunWith(JUnitParamsRunner.class)
 public class BalanceTest {
 
     @Test
     public void should_adding_ten_to_my_balance() throws Exception {
-        LocalDateTime date = LocalDateTime.of(2019, 4, 26, 12, 30);
+        LocalDate date = LocalDate.now();
         Balance balance = new Balance(new Amount(0, date));
         balance = balance.deposit(new Amount(3000 , date));
 
@@ -23,7 +23,7 @@ public class BalanceTest {
 
     @Test
     public void should_subtract_50_to_my_balance() throws Exception {
-        LocalDateTime date = LocalDateTime.of(2019, 4, 26, 12, 30);
+        LocalDate date =  LocalDate.now();
         Balance balance = new Balance(new Amount(250 , date));
         balance = balance.removeMoney(new Amount(50 , date));
 
@@ -34,7 +34,7 @@ public class BalanceTest {
 
     @Test
     public void should_return_false_when_the_result_is_negative() throws Exception {
-        LocalDateTime date = LocalDateTime.of(2019, 4, 26, 12, 30);
+        LocalDate date =  LocalDate.now();
         Balance balance = new Balance(new Amount(300 , date));
 
         boolean isWithDrawNegative = balance.removeNegativeResult(new Amount(400 , date));
@@ -44,7 +44,7 @@ public class BalanceTest {
 
     @Test
     public void should_return_true_when_the_result_is_positive() throws Exception {
-        LocalDateTime date = LocalDateTime.of(2019, 4, 26, 12, 30);
+        LocalDate date =  LocalDate.now();
         Balance balance = new Balance(new Amount(20, date));
 
         boolean isWithDrawNegative = balance.removeNegativeResult(new Amount(10 , date));
