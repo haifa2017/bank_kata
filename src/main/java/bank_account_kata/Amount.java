@@ -2,7 +2,6 @@ package bank_account_kata;
 
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 public class Amount {
 
@@ -27,7 +26,7 @@ public class Amount {
 
     @Override
     public String toString() {
-        return "" + value;
+        return String.valueOf(value);
     }
 
     @Override

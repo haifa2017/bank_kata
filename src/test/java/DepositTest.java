@@ -1,19 +1,17 @@
 import bank_account_kata.Account;
 import bank_account_kata.Amount;
 import bank_account_kata.Balance;
+import junitparams.JUnitParamsRunner;
 import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
-
 import java.time.LocalDate;
 
-@RunWith(MockitoJUnitRunner.class)
+@RunWith(JUnitParamsRunner.class)
 public class DepositTest {
 
-    @Mock
+
     private Account account;
 
 

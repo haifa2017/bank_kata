@@ -34,7 +34,7 @@ public class Balance {
         return amount != null ? amount.hashCode() : 0;
     }
 
-    public boolean  removeNegativeResult(Amount amount) {
+    public boolean removeNegativeResult(Amount amount) {
         return this.amount.negativeResult(amount);
     }
 

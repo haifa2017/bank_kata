@@ -1,11 +1,11 @@
 package bank_account_kata;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
+
+import static bank_account_kata.TypeOfOperation.DEPOSIT_OPERATION;
 import static bank_account_kata.TypeOfOperation.REMOVE_OPERATION;
 
 public class Account {
@@ -17,18 +17,13 @@ public class Account {
     public String toString() {
         return  statements +" | " + balance +" | "  ;
     }
-   /* @Override
-    public String toString() {
-        return localDatetime +
-                " | " + typeofoperation.getOperation() + amount +
-                " | " + currentBalance;
-    }*/
+
     public Account(Balance balance) {
         this.balance = balance;
     }
 
     public void deposit(Amount amount) {
-        CreateStatement(amount, REMOVE_OPERATION);
+        CreateStatement(amount, DEPOSIT_OPERATION);
         balance = balance.deposit(amount);
     }
 
