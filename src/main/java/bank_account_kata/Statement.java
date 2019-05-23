@@ -10,14 +10,14 @@ public class Statement {
     private final Balance currentBalance;
     private final TypeOfOperation typeofoperation;
 
-    private Statement(LocalDate localDatetime, LocalDate localDate, Amount amount, Balance currentBalance, TypeOfOperation typeofoperation) {
+    private Statement(LocalDate localDate, Amount amount, Balance currentBalance, TypeOfOperation typeofoperation) {
         this.localDate = localDate;
         this.amount = amount;
         this.currentBalance = currentBalance;
         this.typeofoperation = typeofoperation;
     }
 
-    public void print(Printer printer) {
+    void print(Printer printer) {
         printer.print(this.toString());
     }
 
@@ -63,7 +63,7 @@ public class Statement {
         }
 
         public Statement build() {
-            return new Statement(localDate, localDate, amount, currentBalance, typeofoperation);
+            return new Statement(localDate, amount, currentBalance, typeofoperation);
         }
     }
 }

@@ -18,13 +18,13 @@ public class StatementTest {
 
 
     @Test
-    public void should_subtract_zero_to_my_account() throws Exception {
+    public void should_subtract_zero_to_my_account()  {
         LocalDate date = LocalDate.now();
 
         Statement statement = Statement.StatementBuilder.aStatement()
                 .withLocalDate(date)
-                .withAmount(new Amount(100,date))
-                .withCurrentBalance(new Balance(new Amount(0,date)))
+                .withAmount(new Amount(100 ))
+                .withCurrentBalance(new Balance(new Amount(0 )))
                 .withOperation(DEPOSIT_OPERATION)
                 .build();
 
@@ -35,37 +35,37 @@ public class StatementTest {
     }
 
     @Test
-    public void should_print_all_statement() throws Exception {
-        LocalDate date1 = LocalDate.now();
-        Account account = new Account(new Balance(new Amount(0, LocalDate.now())));
+    public void should_print_all_statement() {
+        LocalDate date = LocalDate.now();
+        Account account = new Account(new Balance(new Amount(0)));
 
-        account.deposit(new Amount(200, date1));
-        account.remove(new Amount(100, date1));
-        account.deposit(new Amount(500,date1 ));
+        account.deposit(new Amount(200 ));
+        account.remove(new Amount(100 ));
+        account.deposit(new Amount(500 ));
 
         account.printAllStatement(printer);
 
         Statement statement = Statement.StatementBuilder.aStatement()
-                .withLocalDate(date1)
-                .withAmount(new Amount(100,date1))
-                .withCurrentBalance(new Balance(new Amount(0,date1)))
+                .withLocalDate(date)
+                .withAmount(new Amount(100 ))
+                .withCurrentBalance(new Balance(new Amount(0 )))
                 .withOperation(DEPOSIT_OPERATION)
                 .build();
         String result = statement.toString();
 
         Statement statement2 = Statement.StatementBuilder.aStatement()
-                .withLocalDate(date1)
-                .withAmount(new Amount(100,date1))
-                .withCurrentBalance(new Balance(new Amount(0,date1)))
+                .withLocalDate(date)
+                .withAmount(new Amount(100 ))
+                .withCurrentBalance(new Balance(new Amount(0)))
                 .withOperation(REMOVE_OPERATION)
                 .build();
         String result2 = statement2.toString();
 
         String resultTotal= result + result2;
 
-        String expectedStatement1 = date1 +  " | " +  "+" + 100 +
+        String expectedStatement1 = date +  " | " +  "+" + 100 +
                 " | " +  0;
-        String expectedStatement2 = date1 +  " | " +  "-" + 100 +
+        String expectedStatement2 = date +  " | " +  "-" + 100 +
                 " | " + 0 ;
 
         String resultExpected = expectedStatement1 + expectedStatement2 ;

@@ -40,6 +40,6 @@ public class Balance {
 
     @Override
     public String toString() {
-        return "" + amount;
+        return String.valueOf(amount);
     }
 }

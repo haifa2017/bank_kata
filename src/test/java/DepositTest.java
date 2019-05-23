@@ -6,7 +6,7 @@ import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import java.time.LocalDate;
+
 
 @RunWith(JUnitParamsRunner.class)
 public class DepositTest {
@@ -16,39 +16,34 @@ public class DepositTest {
 
 
     @Before
-    public void setUp() throws Exception {
-        LocalDate date =  LocalDate.now();
-        account = new Account(new Balance(new Amount(0 , date)));
+    public void setUp()  {
+        account = new Account(new Balance(new Amount(0)));
     }
 
     @Test
-    public void should_adding_zero_to_my_account() throws Exception {
-        LocalDate date =  LocalDate.now();
-        account.deposit(new Amount(0, date));
+    public void should_adding_zero_to_my_account() {
+        account.deposit(new Amount(0));
 
-        Assertions.assertThat(account.getBalance()).isEqualTo(new Balance(new Amount(0 , date)));
+        Assertions.assertThat(account.getBalance()).isEqualTo(new Balance(new Amount(0)));
     }
 
     @Test
-    public void should_adding_50_to_my_account() throws Exception {
-        LocalDate date =  LocalDate.now();
-        account.deposit(new Amount(50 , date));
+    public void should_adding_50_to_my_account()  {
+        account.deposit(new Amount(50));
 
-        Assertions.assertThat(account.getBalance()).isEqualTo(new Balance(new Amount(50 , date)));
+        Assertions.assertThat(account.getBalance()).isEqualTo(new Balance(new Amount(50)));
     }
 
     @Test
-    public void should_adding_50_twice_to_my_account() throws Exception {
-        LocalDate date =  LocalDate.now();
-        account.deposit(new Amount(50, date));
-        account.deposit(new Amount(50, date));
+    public void should_adding_50_twice_to_my_account()  {
+        account.deposit(new Amount(50));
+        account.deposit(new Amount(50));
 
-        Assertions.assertThat(account.getBalance()).isEqualTo(new Balance(new Amount(100, date)));
+        Assertions.assertThat(account.getBalance()).isEqualTo(new Balance(new Amount(100)));
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void should_not_authorize_deposit_negative_value() throws Exception {
-        LocalDate date =  LocalDate.now();
-        account.deposit(new Amount(-10000, date));
+    public void should_not_authorize_deposit_negative_value() {
+        account.deposit(new Amount(-10000));
     }
 }
