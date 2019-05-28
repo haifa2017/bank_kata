@@ -26,22 +26,4 @@ public class BalanceTest {
 
         Assertions.assertThat(balance).isEqualTo(expectedBalance);
     }
-
-    @Test
-    public void should_return_false_when_the_result_is_negative()  {
-        Balance balance = new Balance(new Amount(300));
-
-        boolean isWithDrawNegative = balance.removeNegativeResult(new Amount(400));
-
-        Assertions.assertThat(isWithDrawNegative).isTrue();
-    }
-
-    @Test
-    public void should_return_true_when_the_result_is_positive()   {
-        Balance balance = new Balance(new Amount(20));
-
-        boolean isWithDrawNegative = balance.removeNegativeResult(new Amount(10));
-
-        Assertions.assertThat(isWithDrawNegative).isFalse();
-    }
 }

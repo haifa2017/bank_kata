@@ -1,8 +1,7 @@
 import bank_account_kata.Amount;
-import junitparams.JUnitParamsRunner;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
-import org.junit.runner.RunWith;
+
 
 
 
@@ -26,20 +25,5 @@ public class AmountTest {
         Amount expectedAmount = new Amount(0);
 
         Assertions.assertThat(amount).isEqualTo(expectedAmount);
-    }
-
-
-    @Test
-    public void return_false_when_the_result_is_negative() {
-        Amount amount = new Amount(200);
-
-        Assertions.assertThat(amount.negativeResult(new Amount(300))).isTrue();
-    }
-
-    @Test
-    public void return_true_when_the_result_is_positive() {
-        Amount amount = new Amount(200);
-
-        Assertions.assertThat(amount.negativeResult(new Amount(100))).isFalse();
     }
 }

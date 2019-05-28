@@ -33,11 +33,6 @@ public class Balance {
     public int hashCode() {
         return amount != null ? amount.hashCode() : 0;
     }
-
-    public boolean removeNegativeResult(Amount amount) {
-        return this.amount.negativeResult(amount);
-    }
-
     @Override
     public String toString() {
         return String.valueOf(amount);

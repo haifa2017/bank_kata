@@ -7,8 +7,6 @@ public class Amount {
     private int value;
 
     public Amount(int value) {
-        if (value < 0)
-            throw new IllegalArgumentException();
         this.value = value;
     }
 
@@ -38,9 +36,5 @@ public class Amount {
     @Override
     public int hashCode() {
         return value;
-    }
-
-    public boolean negativeResult(Amount amount) {
-        return this.value - amount.value < 0;
     }
 }

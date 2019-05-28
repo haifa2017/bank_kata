@@ -41,9 +41,4 @@ public class DepositTest {
 
         Assertions.assertThat(account.getBalance()).isEqualTo(new Balance(new Amount(100)));
     }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void should_not_authorize_deposit_negative_value() {
-        account.deposit(new Amount(-10000));
-    }
 }

@@ -13,9 +13,7 @@ import static bank_account_kata.TypeOfOperation.REMOVE_OPERATION;
 @RunWith(MockitoJUnitRunner.class)
 public class StatementTest {
     @Mock
-    private
-    Printer printer;
-
+    private Printer printer;
 
     @Test
     public void should_subtract_zero_to_my_account() {
@@ -42,6 +40,7 @@ public class StatementTest {
         account.deposit(new Amount(200));
         account.remove(new Amount(100));
         account.deposit(new Amount(500));
+
 
         account.printAllStatement(printer);
 
