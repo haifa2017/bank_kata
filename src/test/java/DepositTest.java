@@ -1,7 +1,6 @@
 import bank_account_kata.Account;
 import bank_account_kata.Amount;
 import bank_account_kata.Balance;
-import junitparams.JUnitParamsRunner;
 import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;

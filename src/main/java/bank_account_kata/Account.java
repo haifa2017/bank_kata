@@ -29,8 +29,6 @@ public class Account {
 
 
     public void remove(Amount amount) {
-     /*   if(balance.removeNegativeResult(amount))
-            throw new IllegalStateException(); */
         CreateStatement(amount, REMOVE_OPERATION);
         balance = balance.removeMoney(amount);
     }
