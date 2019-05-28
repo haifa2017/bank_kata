@@ -5,9 +5,6 @@ import org.assertj.core.api.Assertions;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import java.time.LocalDate;
-
-@RunWith(JUnitParamsRunner.class)
 public class BalanceTest {
 
     @Test

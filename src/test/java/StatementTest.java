@@ -18,19 +18,19 @@ public class StatementTest {
 
 
     @Test
-    public void should_subtract_zero_to_my_account()  {
+    public void should_subtract_zero_to_my_account() {
         LocalDate date = LocalDate.now();
 
         Statement statement = Statement.StatementBuilder.aStatement()
                 .withLocalDate(date)
-                .withAmount(new Amount(100 ))
-                .withCurrentBalance(new Balance(new Amount(0 )))
+                .withAmount(new Amount(100))
+                .withCurrentBalance(new Balance(new Amount(0)))
                 .withOperation(DEPOSIT_OPERATION)
                 .build();
 
-          String result = statement.toString();
-          String expected = date +  " | " +  "+" + 100 +
-                  " | " + 0 ;
+        String result = statement.toString();
+        String expected = date + " | " + "+" + 100 +
+                " | " + 0;
         Assertions.assertThat(result).isEqualTo(expected);
     }
 
@@ -39,36 +39,36 @@ public class StatementTest {
         LocalDate date = LocalDate.now();
         Account account = new Account(new Balance(new Amount(0)));
 
-        account.deposit(new Amount(200 ));
-        account.remove(new Amount(100 ));
-        account.deposit(new Amount(500 ));
+        account.deposit(new Amount(200));
+        account.remove(new Amount(100));
+        account.deposit(new Amount(500));
 
         account.printAllStatement(printer);
 
         Statement statement = Statement.StatementBuilder.aStatement()
                 .withLocalDate(date)
-                .withAmount(new Amount(100 ))
-                .withCurrentBalance(new Balance(new Amount(0 )))
+                .withAmount(new Amount(100))
+                .withCurrentBalance(new Balance(new Amount(0)))
                 .withOperation(DEPOSIT_OPERATION)
                 .build();
         String result = statement.toString();
 
         Statement statement2 = Statement.StatementBuilder.aStatement()
                 .withLocalDate(date)
-                .withAmount(new Amount(100 ))
+                .withAmount(new Amount(100))
                 .withCurrentBalance(new Balance(new Amount(0)))
                 .withOperation(REMOVE_OPERATION)
                 .build();
         String result2 = statement2.toString();
 
-        String resultTotal= result + result2;
+        String resultTotal = result + result2;
 
-        String expectedStatement1 = date +  " | " +  "+" + 100 +
-                " | " +  0;
-        String expectedStatement2 = date +  " | " +  "-" + 100 +
-                " | " + 0 ;
+        String expectedStatement1 = date + " | " + "+" + 100 +
+                " | " + 0;
+        String expectedStatement2 = date + " | " + "-" + 100 +
+                " | " + 0;
 
-        String resultExpected = expectedStatement1 + expectedStatement2 ;
+        String resultExpected = expectedStatement1 + expectedStatement2;
 
         Assertions.assertThat(resultTotal).isEqualTo(resultExpected);
 

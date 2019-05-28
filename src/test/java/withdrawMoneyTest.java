@@ -8,7 +8,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 
-@RunWith(JUnitParamsRunner.class)
 public class withdrawMoneyTest {
 
 
@@ -16,12 +15,12 @@ public class withdrawMoneyTest {
 
     @Before
     public void setUp() {
-        account = new Account(new Balance(new Amount(1000 )));
+        account = new Account(new Balance(new Amount(1000)));
     }
 
     @Test
     public void should_subtract_zero_to_my_account() {
-        account.remove(new Amount(0  ));
+        account.remove(new Amount(0));
 
         Assertions.assertThat(account.getBalance()).isEqualTo(new Balance(new Amount(1000)));
     }
