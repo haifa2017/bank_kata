@@ -2,9 +2,6 @@ import bank_account_kata.Amount;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
-
-
-
 public class AmountTest {
 
     @Test

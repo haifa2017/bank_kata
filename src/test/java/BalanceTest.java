@@ -3,7 +3,6 @@ import bank_account_kata.Balance;
 import junitparams.JUnitParamsRunner;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
 public class BalanceTest {
 
