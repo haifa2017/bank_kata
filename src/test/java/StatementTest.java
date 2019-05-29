@@ -1,10 +1,6 @@
 import bank_account_kata.*;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
-
 import java.time.LocalDate;
 
 import static bank_account_kata.TypeOfOperation.DEPOSIT_OPERATION;
